@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 1 / Home Page</title>
+    <title>Homework 3</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" />
-
     <main>
       <div class="container">
-        <h1>Homework 1 was made by Vitalii Vasylets</h1>
+        <form class="search-form" autocomplete="off">
+          <label class="search-label" for="search">
+            <input
+              class="search-input"
+              type="text"
+              name="search"
+              placeholder="Search images..."
+              autofocus
+            />
+          </label>
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+        <ul class="gallery"></ul>
       </div>
     </main>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
