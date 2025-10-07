@@ -6,7 +6,7 @@ import fetchPictures from "./js/pixabay-api"
 import renderPictures from "./js/render-functions";
 
 let searchData = "";
-const searchForm = document.querySelector("form.search-form");
+const searchForm = document.querySelector("form.form");
 const gallery = document.querySelector("ul.gallery");
 
 searchForm.addEventListener("input", (evt) => {
