@@ -8,6 +8,7 @@ import renderPictures from "./js/render-functions";
 let searchData = "";
 const searchForm = document.querySelector("form.form");
 const gallery = document.querySelector("ul.gallery");
+const loader = document.querySelector("div.loader-box");
 
 searchForm.addEventListener("input", (evt) => {
   searchData = evt.target.value
@@ -24,10 +25,11 @@ searchForm.addEventListener("submit", (evt) => {
     return
   }
 
-  gallery.innerHTML = '<span class="loader"></span>'
+  gallery.innerHTML = ''
+  loader.classList.remove('visually-hidden');
   fetchPictures(searchData, 24)
     .then(response => {
-      gallery.innerHTML = ''
+      loader.classList.add('visually-hidden');
       if (!response.total) {
         throw new Error("Sorry, there are no images matching your search query. Please try again!");
       }
@@ -35,7 +37,7 @@ searchForm.addEventListener("submit", (evt) => {
       lightbox.refresh()
     })
     .catch(error => {
-      gallery.innerHTML = ''
+      loader.classList.add('visually-hidden');
       iziToast.error({
         icon: '',
         position: 'topRight',
